@@ -1,0 +1,20 @@
+﻿@using Koesell.Models
+@model IEnumerable<CategoryModel>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h4 class="panel-title">
+            <a href="/Home/Product">Tüm Ürünler</a>
+        </h4>
+    </div>
+</div>
+@foreach (var item in Model)
+{
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a href="/Home/ProductList/@item.Id">@item.Name [@item.Count]</a>
+            </h4>
+        </div>
+    </div>
+}

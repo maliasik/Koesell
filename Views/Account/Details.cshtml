@@ -1,0 +1,84 @@
+﻿@model Koesell.Models.OrderDetails
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="table-responsive cart_info">
+        <table class="table table-condensed">
+            <thead>
+                <tr class="cart_menu">
+                    <td>Sipariş ID</td>
+                    <td>Sipariş Numarası</td>
+                    <td>Sipariş Tarihi</td>
+                    <td>Toplam Tutar (₺)</td>
+                    <td>Sipariş Durumu</td>
+
+                    <th>Adres</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr>
+                    <td>@Model.OrderId</td>
+                    <td>@Model.OrderNumber</td>
+                    <td>@Model.OrderDate</td>
+                    <td>@Model.Total</td>
+                    <td>@if (Model.OrderState == Koesell.Entity.OrderState.Bekleniyor)
+                        {
+                            <a class="btn btn-danger">Siparişiniz Beklemede</a>
+                        }
+                        else if (Model.OrderState == Koesell.Entity.OrderState.Tamamlandı)
+                        {
+                            <a class="btn btn-success">Siparişiniz Tamamlandı</a>
+                        }
+                        else if (Model.OrderState == Koesell.Entity.OrderState.Paketlendi)
+                        {
+                            <a class="btn btn-info">Siparişiniz Paketlendi</a>
+                        }
+                        else if (Model.OrderState == Koesell.Entity.OrderState.Kargolandı)
+                        {
+                            <a class="btn btn-primary">Siparişiniz Kargoya Verildi</a>
+                        }
+                    </td>
+                    <td>@Model.Adres <br/>
+                        @Model.Sehir <br />
+                        @Model.Semt <br />
+                        @Model.Mahalle <br />
+                        @Model.PostaKodu <br />
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-condensed">
+            <thead>
+                <tr class="cart_menu">
+                    <td>Resim</td>
+                    <td>Ürün Adı</td>
+                    <td>Toplam Tutar (₺)</td>
+                    <td>Adet</td>
+
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.OrderLines)
+                {
+                    <tr>
+                        <td><img src="~/Content/Image/@item.Image" height="75"width="75"</td>
+                        <td>@item.ProductName</td>
+                        <td>@item.Price</td>
+                        <td>@item.Quantity</td>
+                        <td><a href="/Home/ProductDetails/@item.ProductId" class="btn btn-success" target="_blank">Ürün Detay</a></td>
+
+                    </tr>
+
+                }
+            </tbody>
+        </table>
+    </div>
+
+</div>
+

@@ -1,0 +1,3 @@
+﻿@model Koesell.Models.Cart
+
+<a href="/Cart/Index"><i class="fa fa-shopping-cart">&nbsp; @Model.CartLines.Count Ürün;</i>&nbsp;<i class="badge progress-bar-danger">@Model.Total().ToString("c")</i></a>

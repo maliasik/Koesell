@@ -1,0 +1,156 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Home | E-Shopper</title>
+    <link href="/Koesell/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/Koesell/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/Koesell/css/prettyPhoto.css" rel="stylesheet">
+    <link href="/Koesell/css/price-range.css" rel="stylesheet">
+    <link href="/Koesell/css/animate.css" rel="stylesheet">
+    <link href="/Koesell/css/main.css" rel="stylesheet">
+    <link href="/Koesell/css/responsive.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="/Koesell/js/html5shiv.js"></script>
+    <script src="/Koesell/js/respond.min.js"></script>
+    <![endif]-->
+    <link rel="shortcut icon" href="/Koesell/images/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/Koesell/images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/Koesell/images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/Koesell/images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="/Koesell/images/ico/apple-touch-icon-57-precomposed.png">
+</head><!--/head-->
+
+<body>
+    <header id="header">
+        <!--header-->
+        <div class="header_top">
+            <!--header_top-->
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="contactinfo">
+                            <ul class="nav nav-pills">
+                                <li><a href="#"><i class="fa fa-phone"></i> +905000000000</a></li>
+                                <li><a href="#"><i class="fa fa-envelope"></i> info@koesell.com</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="social-icons pull-right">
+                            <ul class="nav navbar-nav">
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!--/header_top-->
+
+        <div class="header-middle">
+            <!--header-middle-->
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="logo pull-left">
+                            <a href="/Home/Index/"><img src="/Koesell/images/home/logo.png" alt="" /></a>
+                        </div>
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="shop-menu pull-right">
+                        @Html.Action("Summary","Cart")
+                            <br />
+                        @Html.Partial("LoginPartial")
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!--/header-middle-->
+
+        <div class="header-bottom">
+            <!--header-bottom-->
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-9">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                        </div>
+                        <div class="mainmenu pull-left">
+                            <ul class="nav navbar-nav collapse navbar-collapse">
+                                <li><a href="/Home/Index" class="active">Anasayfa</a></li>
+                                <li><a href="/Home/Product">Ürünler</a></li>
+                                <li><a href="/Home/Contact/">İletişim</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        @Html.Partial("Arama")
+                    </div>
+                </div>
+            </div>
+        </div><!--/header-bottom-->
+    </header><!--/header-->
+
+@RenderBody()
+
+    <footer id="footer">
+        <!--Footer-->
+        <div class="footer-top">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-sm-7">
+                            <div class="single-widget">
+                                <h2>Hızlı Erişim</h2>
+                                <ul class="nav nav-pills nav-stacked">
+                                    <li><a href="/Home/Index" class="active">Anasayfa</a></li>
+                                    <li><a href="/Home/Product">Ürünler</a></li>
+                                    <li><a href="/Home/Contact/">İletişim</a></li>
+                                </ul>
+                            </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="address">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3204.028759060439!2d36.1520982152837!3d36.57752477999499!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x152f58e76c45ad8b%3A0xf98a91f01da61525!2s%C4%B0skenderun%20Teknik%20%C3%9Cniversitesi%20(%C4%B0STE)!5e0!3m2!1str!2str!4v1625263637621!5m2!1str!2str" ,
+                                    width="300" height="150" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                            <h4>Adres: İskenderun Teknik Üniversitesi(İSTE), Merkez Kampüs, 31200 İskenderun/Hatay</h4>
+                            <h4>Telefon : 0346 000 00 00</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <p class="pull-left">Copyright © 2021 Koesell. Tüm hakları saklıdır.</p>
+                    <p class="pull-right">Designed by Muhammet Ali AŞIK</p>
+                </div>
+            </div> 
+        </div>
+
+    </footer><!--/Footer-->
+
+
+
+    <script src="/Koesell/js/jquery.js"></script>
+    <script src="/Koesell/js/bootstrap.min.js"></script>
+    <script src="/Koesell/js/jquery.scrollUp.min.js"></script>
+    <script src="/Koesell/js/price-range.js"></script>
+    <script src="/Koesell/js/jquery.prettyPhoto.js"></script>
+    <script src="/Koesell/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+﻿@using Koesell.Entity
+@model Product
+
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="left-sidebar">
+                        <h2>Kategoriler</h2>
+                        <div class="panel-group category-products" id="accordian">
+                            <!--category-productsr-->
+                            @Html.Action("_CategoryList", "Category")
+                        </div><!--/category-products-->
+
+                    </div>
+                </div>
+                <div class="breadcrumbs">
+                    <ol class="breadcrumb">
+                        <li><a href="/Home/Index">Anasayfa</a></li>
+                        <li><a href="/Home/Product">Ürünler</a></li>
+                        <li class="active">Ürün Detay</li>
+                    </ol>
+                </div>
+                <div class="col-sm-9 padding-right">
+                    <div class="product-details">
+                        <!--product-details-->
+                        <div class="col-sm-5">
+                            <div class="view-product">
+                                <a href="~/Content/Image/@Model.Image"><img src="~/Content/Image/@Model.Image" alt="" /></a>
+                                <a href="~/Content/Image/@Model.Image"><h3>Resmi Büyüt</h3></a>
+</div>
+                            <div id="similar-product" class="carousel slide" data-ride="carousel">
+                            </div>
+
+                        </div>
+                        <div class="col-sm-7">
+                            <div class="product-information">
+                                <!--/product-information-->
+                                <h2>@Model.Name</h2>
+                                <span>
+                                    @using (Html.BeginForm("AddToCart", "Cart", new { @class = "form-horizontal" }))
+                                    {
+                                        @Html.HiddenFor(i => i.Id)
+                                        <span>@Model.Price ₺</span>
+                                        <button type="submit" class="btn btn-fefault cart">
+                                            <i class="fa fa-shopping-cart"></i>
+                                            Sepete Ekle
+                                        </button>
+                                    }
+                                </span>
+                                <p><b>Stokta: </b>@Model.Stock</p>
+                                <p><b>Satıcı:</b> @Model.Name</p>
+                                <a href="https://www.facebook.com/sharer/sharer.php?"
+                                   target="_blank" class="fa fa-facebook" title="Facebookta paylaş">
+                                </a>
+
+                                &nbsp;
+
+                                <a href="https://twitter.com/intent/tweet?"
+                                   target="_blank" class="fa fa-twitter" title="Tweet gönder">
+                                </a>
+
+                                &nbsp;
+
+                                <a href="https://plus.google.com/share?
+   url=@Url.Encode(Request.Url.ToString())"
+                                   target="_blank" class="fa fa-instagram" title="İnstagramda paylaş">
+                                </a>
+                            </div><!--/product-information-->
+                        </div>
+                    </div><!--/product-details-->
+
+                    <div class="category-tab shop-details-tab">
+                        <!--category-tab-->
+                        <div class="col-sm-12">
+                            <ul class="nav nav-tabs">
+                                <li class="active"><a href="#details" data-toggle="tab">Ürün Detayları</a></li>
+                            </ul>
+                        </div>
+                        <div class="tab-content">
+                            <div class="active" id="details">
+                                @Model.Description
+                            </div>
+                        </div>
+                    </div><!--/category-tab-->
+
+                    @Html.Action("_FeaturedProductList", "Home")
+
+                </div>
+            </div>
+        </div>
+    </section>

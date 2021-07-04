@@ -1,0 +1,104 @@
+﻿@model Koesell.Models.Cart
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section id="cart_items">
+    <div class="container">
+        @if (Model.CartLines.Count > 0)
+        {
+            <div class="table-responsive cart_info">
+                <table class="table table-condensed">
+                    <thead>
+                        <tr class="cart_menu">
+                            <td class="image">Resim</td>
+                            <td class="name">Adı</td>
+                            <td class="description">Açıklama</td>
+                            <td class="quantity">Adet</td>
+                            <td class="price">Fiyat</td>
+                            <td class="total">Toplam Fiyat</td>
+                            <td></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.CartLines)
+                        {
+                            <tr>
+                                <td class="cart_product">
+                                    <a href=""><img width="250" height="250" src="~/Content/Image/@item.Product.Image" alt=""></a>
+                                </td>
+                                <td class="cart_name">
+                                    <h4><a href="">@item.Product.Name</a></h4>
+                                </td>
+                                <td class="cart_description">
+                                    <h4><a href="">@item.Product.Description</a></h4>
+                                </td>
+                                <td class="cart_quantity">
+                                    <h4><a href="">@item.Quantity</a></h4>
+                                </td>
+                                <td class="cart_price">
+                                    <p>@item.Product.Price ₺</p>
+                                </td>
+                                <td class="cart_total">
+                                    @((item.Product.Price*item.Quantity).ToString("c"))
+                                </td>
+                                <td class="cart_delete">
+                                    @using (Html.BeginForm("RemoveFromCart", "Cart"))
+                                    {
+                                        @Html.Hidden("Id", item.Product.Id)
+                                        <button type="submit" class="cart_delete"><i class="fa fa-times"></i>Sil</button>
+                                    }
+                                </td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+            <section id="do_action">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-6">
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="total_area">
+                                <ul>
+                                    <li>KDV <span>(%18)</span></li>
+                                    <li>Kargo <span>Ücretsiz</span></li>
+                                    <li>Toplam <span>@Model.Total().ToString("c")</span></li>
+                                </ul>
+                                <a class="glyphicon glyphicon-circle-arrow-left" href="/Home/Index"><strong>Alışverişe Devam Et</strong></a>
+                                @if (Request.IsAuthenticated)
+                                {
+                                    <br /><a href="/Cart/Checkout" class="btn btn-default check_out">Sipariş Ver</a>
+                                }
+                                else
+                                {
+                                    <br /><a href="/Account/Login" class="btn btn-default check_out">Sipariş Ver</a>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section><!--/#do_action-->
+        }
+        else
+        {
+            <div class="alert alert-warning">
+                <p>
+                    <b>Sepetinizde Ürün Bulunmamaktadır.</b>
+                    <br />
+                    <br />İsterseniz sizin için önerdiğimiz ürünlere göz atabilirsiniz.
+                </p>
+            </div>
+            <!--category-tab-->
+            <div class="col-sm-12">
+                
+            </div>
+        }
+
+    </div>
+</section> <!--/#cart_items-->
+
+

@@ -1,0 +1,45 @@
+﻿@using Koesell.Entity
+@model IEnumerable<Product>
+
+<div id="slider-carousel" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#slider-carousel" data-slide-to="0" class=""></li>
+        <li data-target="#slider-carousel" data-slide-to="1" class="active"></li>
+        <li data-target="#slider-carousel" data-slide-to="2"></li>
+    </ol>
+
+    <div class="carousel-inner">
+        <div class="item active">
+            <div class="col-sm-6">
+                <h1><span>Koe</span>Sell</h1>
+                <h2>100% Müşteri Memnuniyeti</h2>
+                <p><b><strong>En iyi fiyatlar bir tık uzağınızda.</strong></b></p>
+            </div>
+            <div class="col-sm-6">
+                <img src="/Koesell/images/koesell.png" class="girl img-responsive" alt="">
+            </div>
+        </div>
+        @foreach (var item in Model)
+        {
+            <div class="item">
+                <div class="col-sm-6">
+                    <h1>@item.Name</h1>
+                    <h2>@item.Description</h2>
+                    <p><span>Sadece</span> <b>@item.Price ₺ </b></p>
+                    <button type="button" class="btn btn-default get"><a href="/Home/ProductDetails/@item.Id">İncele</a></button>
+                </div>
+                <div class="col-sm-6">
+                    <a href="/Home/ProductDetails/@item.Id"><img style="width:100%; max-width:484px; max-height:441px; min-width:484px; min-height:441px;" src="~/Content/Image/@item.Image" alt=""></a>
+                </div>
+            </div>
+        }
+
+    </div>
+
+    <a href="#slider-carousel" class="left control-carousel hidden-xs" data-slide="prev">
+        <i class="fa fa-angle-left"></i>
+    </a>
+    <a href="#slider-carousel" class="right control-carousel hidden-xs" data-slide="next">
+        <i class="fa fa-angle-right"></i>
+    </a>
+</div>

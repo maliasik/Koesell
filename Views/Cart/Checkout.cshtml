@@ -1,0 +1,73 @@
+﻿@model Koesell.Models.ShippingDetails
+
+@{
+    ViewBag.Title = "Checkout";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-sm-4 col-sm-offset-1">
+
+    </div>
+    <div class="col-sm-4">
+        <div class="signup-form">
+            <!--sign up form-->
+            <h2>Sipariş Formu</h2>
+            @using (Html.BeginForm("Checkout", "Cart", FormMethod.Post, new { @class = "form-horizontal" }))
+            {
+                <div class="control-group">
+                    <div class="controls">
+                        <div class="col-md-10">
+                            <div class="btn-success"> @User.Identity.Name</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <div class="controls">
+                        <div class="col-md-10">
+                            Adres: @Html.EditorFor(model => model.Adres, new { htmlAttributes = new { @class = "form-control", @style = "max-width: 100%" } })
+                            @Html.ValidationMessageFor(model => model.Adres, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <div class="controls">
+                        <div class="col-md-10">
+                            Şehir: @Html.EditorFor(model => model.Sehir, new { htmlAttributes = new { @class = "form-control", @style = "max-width: 100%" } })
+                            @Html.ValidationMessageFor(model => model.Sehir, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <div class="controls">
+                        <div class="col-md-10">
+                            Semt: @Html.EditorFor(model => model.Semt, new { htmlAttributes = new { @class = "form-control", @style = "max-width: 100%" } })
+                            @Html.ValidationMessageFor(model => model.Semt, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <div class="controls">
+                        <div class="col-md-10">
+                            Mahalle: @Html.EditorFor(model => model.Mahalle, new { htmlAttributes = new { @class = "form-control", @style = "max-width: 100%" } })
+                            @Html.ValidationMessageFor(model => model.Mahalle, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <div class="controls">
+                        <div class="col-md-10">
+                            PostaKodu: @Html.EditorFor(model => model.PostaKodu, new { htmlAttributes = new { @class = "form-control", @style = "max-width: 100%" } })
+                            @Html.ValidationMessageFor(model => model.PostaKodu, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <div class="controls">
+                        <a href=""></a><button type="submit" class="btn btn-success">Siparişi Tamamla</button>
+                    </div>
+                </div>
+            }
+        </div><!--/sign up form-->
+    </div>
+</div>

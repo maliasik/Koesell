@@ -1,0 +1,26 @@
+﻿
+<ul class="nav navbar-nav">
+    @if (Request.IsAuthenticated)
+    {
+        if (this.User.IsInRole("admin"))
+        {
+            <li><a href="/Product/Index" target="_blank"><span class="glyphicon glyphicon-user"></span>Admin Paneli</a></li>
+            <li><a href="/Account/UserProfil"><span class="glyphicon glyphicon-edit"></span>Profilim</a></li>
+            <li><a href="/Account/Index">@User.Identity.Name</a></li>
+            <li class="label"><a href="/Account/LogOut"><span class="glyphicon glyphicon-log-out"></span>Çıkış</a></li>
+
+        }
+        else
+        {
+            <li><a href="/Account/UserProfil"><span class="glyphicon glyphicon-edit"></span>Profilim</a></li>
+            <li><a href="/Account/Index">@User.Identity.Name</a></li>
+            <li><a href="/Account/LogOut"><span class="glyphicon glyphicon-remove-sign"></span>Çıkış</a></li>
+        }
+    }
+    else
+    {
+        <li class="label"><a href="/Account/Register"><span class="glyphicon glyphicon-registration-mark"></span>Kayıt Ol</a></li>
+        <li class="label"><a href="/Account/Login"><span class="glyphicon glyphicon-log-in"></span>Giriş</a></li>
+    }
+</ul>
+
